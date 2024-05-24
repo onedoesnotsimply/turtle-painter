@@ -45,7 +45,11 @@ public class UserInterface {
             if (choice == 1){
                 shapeMenu();
             } else if (choice == 2) {
-                //saveImage();
+                System.out.println("Enter the filename you would like this image saved under");
+                scanner.nextLine();
+                String filename = scanner.nextLine();
+                world.saveAs(filename);
+                mainMenu();
             } else if (choice == 0) {
                 System.exit(0);
             } else{
@@ -64,7 +68,7 @@ public class UserInterface {
         System.out.println();
         System.out.println("""
                 1) Square
-                2) Triangle
+                2) Hexagon
                 3) Circle""");
 
         //try {
@@ -79,16 +83,13 @@ public class UserInterface {
         System.out.print("Line color (1. Pink (2. Orange (3. Gray : ");
         int colorChoice = scanner.nextInt();
 
-        Color color;
-
+        Color color = Color.black;
         if (colorChoice==1) {
-            color = Color.pink;
+            color = Color.PINK;
         } else if (colorChoice==2) {
             color = Color.orange;
         } else if (colorChoice==3) {
             color = Color.darkGray;
-        } else {
-            color = Color.black;
         }
 
         System.out.println("Where would you like to place the shape?");
@@ -106,22 +107,19 @@ public class UserInterface {
             square.paint();
             mainMenu();
         } else if (choice==2) {
-            System.out.println("Enter the height : ");
-            int height = scanner.nextInt();
-            System.out.println("Enter the width : ");
-            int width = scanner.nextInt();
+            System.out.print("Enter the length : ");
+            int length = scanner.nextInt();
 
-            Triangle tri = new Triangle(world, color, borderWidth,location,height,width);
-            tri.paint();
+            Hexagon hex = new Hexagon(world, color, borderWidth,location,length);
+            hex.paint();
             mainMenu();
         } else if (choice==3) {
-            System.out.println("Enter the radius : ");
+            System.out.print("Enter the radius : ");
             int radius = scanner.nextInt();
 
             Circle circle = new Circle(world,color,borderWidth,location,radius);
             circle.paint();
             mainMenu();
         }
-        //}
     }
 }
