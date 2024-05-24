@@ -71,7 +71,7 @@ public class UserInterface {
                 2) Hexagon
                 3) Circle""");
 
-        //try {
+
         int choice = scanner.nextInt();
         if (choice > 3 || choice < 0) {
             System.out.println("input out of range");
@@ -80,12 +80,13 @@ public class UserInterface {
 
         System.out.print("Line width : ");
         int borderWidth = scanner.nextInt();
-        System.out.print("Line color (1. Pink (2. Orange (3. Gray : ");
+        System.out.print("Line color (1. Gray (2. Orange (3. Purple : "); // Made the options fit the color outputs
         int colorChoice = scanner.nextInt();
 
-        Color color = Color.black;
+        // Not sure why it doesn't show the correct colors
+        Color color = null;
         if (colorChoice==1) {
-            color = Color.PINK;
+            color = Color.magenta;
         } else if (colorChoice==2) {
             color = Color.orange;
         } else if (colorChoice==3) {
